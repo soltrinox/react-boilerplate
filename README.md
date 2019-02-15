@@ -1,6 +1,6 @@
 # [Boilerplate] React - WebApp
 
-[![GitHub release](https://img.shields.io/badge/Release-1.0-lightgrey.svg)](https://github.com/lucacattide/react-app-boilerplate/releases/tag/1.0)
+[![GitHub release](https://img.shields.io/badge/Release-1.0.0-lightgrey.svg)](https://github.com/lucacattide/react-app-boilerplate/releases/tag/1.0.0)
 [![GitHub contributors](https://img.shields.io/badge/Contributors-1-lightgrey.svg)](https://github.com/lucacattide/react-app-boilerplate/graphs/contributors)
 
 ## Team
@@ -13,7 +13,7 @@
 
 ## 1) FAQ
 
-Boilerplate Siti Web.
+Boilerplate WebApp.
 
 ## 2) Limitazioni di Responsabilità
 
