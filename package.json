@@ -1,0 +1,60 @@
+{
+  "name": "",
+  "version": "0.0.0",
+  "description": "© 2019. Tutti i Diritti riservati.",
+  "homepage": "https://",
+  "bugs": {
+    "url": "",
+    "email": "info@lucacattide.it"
+  },
+  "license": {
+    "license": "LICENSE"
+  },
+  "main": "src/index.js",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.12",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.4",
+    "redux": "^4.0.1",
+    "redux-starter-kit": "^0.4.3",
+    "source-map-explorer": "^1.6.0"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "start": "react-scripts start",
+    "server": "node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "luca",
+    "cattide"
+  ],
+  "author": "Luca Cattide - Front-End Web Developer <l.cattide@email.it> | LC (https://lucacattide.it)",
+  "devDependencies": {
+    "redux-devtools": "^3.5.0"
+  }
+}
