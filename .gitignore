@@ -9,8 +9,13 @@
 # production
 /build
 # misc
-/.editorconfig
-/.vscode
+/public
+/src
+!/.gitignore
+/.*
+/config-overrides.js
+/server.js
+/*.json
 .DS_Store
 .env.local
 .env.development.local
