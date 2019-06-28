@@ -1,7 +1,10 @@
+// Module Start
+// App
+// JS Imports
 import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme } from '@material-ui/core/styles';
-import './App.scss';
+import '../sass/App.scss';
 
 const theme = createMuiTheme({
   palette: {
@@ -20,7 +23,21 @@ const theme = createMuiTheme({
   },
 });
 
+/**
+ * @description App
+ * @author Luca Cattide
+ * @date 2019-06-27
+ * @class App
+ * @extends {Component}
+ */
 class App extends Component {
+  /**
+   * @description App rendering
+   * @author Luca Cattide
+   * @date 2019-06-27
+   * @returns
+   * @memberof App
+   */
   render() {
     return (
       <>
@@ -32,4 +49,6 @@ class App extends Component {
   }
 }
 
+// Moduel export
 export default App;
+// Module End
