@@ -1,0 +1,33 @@
+{
+  "name": "-backend",
+  "version": "1.0.0",
+  "description": "© Luca Cattide 2019. All Rights reserved.",
+  "bugs": {
+    "url": "",
+    "email": "l.cattide@email.it"
+  },
+  "license": {
+    "license": "LICENSE"
+  },
+  "private": true,
+  "dependencies": {
+    "graphql-yoga": "^1.7.0",
+    "prisma-client-lib": "^1.31.0"
+  },
+  "devDependencies": {
+    "prisma": "^1.31.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "prisma": "prisma deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "luca",
+    "cattide"
+  ],
+  "author": "Luca Cattide - Senior Frontend Developer <info@lucacattide.it> | LC (https://lucacattide.it)"
+}
