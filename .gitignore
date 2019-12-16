@@ -10,6 +10,7 @@
 /build
 # misc
 /src/__tests__
+!/.github
 !/.gitignore
 /.*
 /jest.*.js
