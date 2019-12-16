@@ -69,42 +69,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-/**
- * @description App
- * @author Luca Cattide
- * @date 2019-06-28
- * @class App
- * @extends {Component}
- */
-export default class App extends React.Component {
-  // Fonts initialization
-  async componentWillMount() {
-    await Expo.Font.loadAsync({
-      'Roboto': require('native-base/Fonts/Roboto.ttf'),
-      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-    });
-  }
-
-  /**
-   * @description App rendering
-   * @author Luca Cattide
-   * @date 2019-06-28
-   * @returns
-   * @memberof App
-   */
-  render() {
-    return (
-      <ApolloProvider client={client}>
-        <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-        </View>
-      </ApolloProvider>
-    );
-  }
-}
-
-AppRegistry.registerComponent('MyApplication', () => App);
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
