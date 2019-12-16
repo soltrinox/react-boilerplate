@@ -24,8 +24,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
-// Assets Exposing
-app.use('/static', express.static(__dirname + 'public'));
 // Routes
 // Service Worker
 app.get('/service-worker.js', serviceWorker(app));
