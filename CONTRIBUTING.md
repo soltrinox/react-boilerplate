@@ -19,21 +19,18 @@ Third-party linter plugins like ESLint, Beautify, Prettier or any other similar 
 ### List of common assets
 
 - Paths:
+    * __/\_\_tests\_\_/__: Contains all the shared unit tests;
+    * __/\_\_tests\_\_/\_\_snapshots\_\___: Contains all the shared snapshot unit tests;
+    * __/assets/__: Contains all the shared assets files;
     * __/backend/__: Contains all the shared back-end scripts (__development__/__production__ version);
     * __/backend/prisma/__: Contains all the shared Back-End Database client scripts;
     * __/backend/src/__: Contains all the shared Back-End scripts (__development__ version);
     * __/backend/src/resolvers/__: Contains all the shared Back-End resolvers scripts (__development__/__production__ version);
-    * __/public/img/__: Contains all the iconographic assets;
-    * __/src/__: Contains all the shared scripts (__development__ version);
-    * __/src/components/__: Contains all the shared app component scripts;
-    * __/src/css/__: Contains all the shared styles (__development__ version);
-    * __/src/sass/__: Contains all the shared preprocessed styles;
-    * __/src/sass/\<section_name\>/__: Contains all the section preprocessed styles;
-    * __/src/\_\_tests\_\_/__: Contains all the shared unit tests;
-    * __/src/\_\_tests\_\_/\_\_snapshots\_\___: Contains all the shared snapshot unit tests;
-    * __/lib/__: Contains all the deploy manager utility recipes;
+    * __/.expo-shared/__: Contains all the shared emulator configuration files (_Expo_);
 
 - Sources:
+    * __/assets/icon.png__: App main icon image file;
+    * __/assets/splash.png__: App main spash image file;
     * __/backend/prisma/datamodel.prisma__: Prisma Data Model definition
     * __/backend/prisma/prisma.yml__: Prisma Database client configuration
     * __/backend/src/index.js__: Back-End server JavaScript module;
@@ -41,65 +38,48 @@ Third-party linter plugins like ESLint, Beautify, Prettier or any other similar 
     * __/backend/src/resolvers/Mutation.js__: GraphQL Mutation definitions;
     * __/backend/src/resolvers/Query.js__: GraphQL Query definitions;
     * __/backend/src/resolvers/Subscription.js__: GraphQL Subscription definitions;
-    * __/components/<section-name\>.js__: Section module
+    * __/<section-name\>.js__: Section module
         - Includes:
-            - __/sass/<section-name\>.scss__: Section style preprocessor import;
             - __\<function-name\>__: Common proprietary and third-party modules import;
-    * __/public/manifest.json__: Progressive Web App manifest file;
-    * __/test/<section_name\>.test.js__: Component testing assertion definitions
-    * __/src/index.js__: Main module
-    - Includes:
-        - __/css/index.css__: Main style preprocessor import;
-        - __\<function-name\>__: Common proprietary and third-party modules import;
-    * __/src/install.js__: Progressive Web App local installation settings;
-    * __/src/serviceWorker.js__: Progressive Web App service worker configuration;
-    * __/src/serviceWorkerCustom.js__: Progressive Web App service worker custom configuration;
-    * __/src/css/<section_name\>.css__: Section style file;
-    * __/src/sass/<section_name\>.scss__: Section style preprocessor file;
-
+    * __/app.json/__: App main configuration file;
+    * __/server.js/__: Back-End dynamic server JavaScript module;
 
 ## Repository
 
 - .gitignore (Production)
     * _Bundle default files_;
-    * __/backend/node_modules/:__ Full-Stack Front-End dependencies (_NodeJS_);
+    * __/\_\_tests\_\_/__: Unit testing files (JavaScript);
     * __/node_modules/:__ Full-Stack Front-End dependencies (_NodeJS_);
     * __!/.gitignore:__ Repository configuration file;
     * __/.*:__ Various system and configuration files;
-    * __/config-overrides.js:__ Bundle configuration overrides file;
+    * __/babel.config.js/__: ES6 compiler configuration files (_JavaScript_);
     * __/server.js:__ Back-End dynamic server configuration file (_NodeJS_);
+    * __!/app.json/:__ App main configuration file (_JavaScript_);
     * __/*.json:__ Full-Stack Front-End various configuration files;
+    * __.DS_Store__: OS filesystem indexing file (_Mac OS X_);
 
 
 I.e.
 
 ```
     # Repository - Configuration
-    # dependencies
-    /backend/node_modules
-    /node_modules
-    /.pnp
-    .pnp.js
-    # testing
-    /coverage
-    # production
-    /build
-    # misc
-    /public
-    /src
+    node_modules/**/*
+    .expo/*
+    npm-debug.*
+    *.jks
+    *.p12
+    *.key
+    *.mobileprovision
+    /__tests__
+    /.edirotconfig
     !/.gitignore
     /.*
-    /config-overrides.js
+    /babel.config.js
     /server.js
+    !/app.json
     /*.json
+    .vscode
     .DS_Store
-    .env.local
-    .env.development.local
-    .env.test.local
-    .env.production.local
-    npm-debug.log*
-    yarn-debug.log*
-    yarn-error.log*
 ```
 
 

@@ -1,12 +1,12 @@
 # [Boilerplate] React
 
-![GitHub repo size](https://img.shields.io/github/repo-size/lucacattide/react-boilerplate.svg?style=for-the-badge)
-[![GitHub release](https://img.shields.io/badge/Release-3.0.0-lightgrey.svg?style=for-the-badge)](https://github.com/lucacattide/react-boilerplate/releases/tag/3.0.0)
-![Github All Releases downloads](https://img.shields.io/github/downloads/lucacattide/react-boilerplate/total.svg?style=for-the-badge)
-[![GitHub contributors](https://img.shields.io/badge/Contributors-1-lightgrey.svg?style=for-the-badge)](https://github.com/lucacattide/react-boilerplate/graphs/contributors)
-![GitHub issues](https://img.shields.io/github/issues/lucacattide/react-boilerplate.svg?style=for-the-badge)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/y/lucacattide/react-boilerplate.svg?style=for-the-badge)
-![GitHub License](https://img.shields.io/github/license/lucacattide/react-boilerplate.svg?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/lucacattide/react-native-boilerplate.svg?style=for-the-badge)
+[![GitHub release](https://img.shields.io/badge/Release-3.0.0-lightgrey.svg?style=for-the-badge)](https://github.com/lucacattide/react-native-boilerplate/releases/tag/3.0.0)
+![Github All Releases downloads](https://img.shields.io/github/downloads/lucacattide/react-native-boilerplate/total.svg?style=for-the-badge)
+[![GitHub contributors](https://img.shields.io/badge/Contributors-1-lightgrey.svg?style=for-the-badge)](https://github.com/lucacattide/react-native-boilerplate/graphs/contributors)
+![GitHub issues](https://img.shields.io/github/issues/lucacattide/react-native-boilerplate.svg?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/lucacattide/react-native-boilerplate.svg?style=for-the-badge)
+![GitHub License](https://img.shields.io/github/license/lucacattide/react-native-boilerplate.svg?style=for-the-badge)
 [![GitHub Followers](https://img.shields.io/github/followers/lucacattide.svg?style=for-the-badge)](https://github.com/lucacattide)
 [![Stack Overflow reputation](https://img.shields.io/stackexchange/stackoverflow/r/7554217.svg?style=for-the-badge)](https://stackoverflow.com/users/7554217/luca-cattide)
 
@@ -20,7 +20,7 @@
 
 ## 1) FAQ
 
-React WebApp boilerplate.
+React mobile app boilerplate.
 
 ## 2) Disclaimer
 

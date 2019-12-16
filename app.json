@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "",
+    "slug": "",
+    "description": "",
+    "privacy": "unlisted",
+    "sdkVersion": "33.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "githubUrl": "https://",
+    "primaryColor": "#",
+    "entryPoint": "App.js",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "androidStatusBar": {
+      "barStyle": "",
+      "backgroundColor": "#"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "appStoreUrl": ""
+    },
+    "notification": {
+      "icon": "",
+      "color": "#",
+      "androidMode": "default",
+      "androidCollapsedTitle": "#{unread_notifications}"
+    },
+    "facebookAppId": "",
+    "facebookDisplayName": "",
+    "facebookScheme": ""
+  }
+}

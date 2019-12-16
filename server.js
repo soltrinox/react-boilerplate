@@ -8,11 +8,6 @@ const path = require('path');
 const {
   join
 } = require('path');
-const serviceWorker = (app) => (req, res) => {
-  const filePath = join(__dirname, 'build', 'service-worker.js');
-
-  app.serveStatic(req, res, filePath);
-};
 const compression = require('compression');
 const bodyParser = require('body-parser');
 
@@ -24,14 +19,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
-// Assets Exposing
-app.use('/static', express.static(__dirname + 'public'));
 // Routes
-// Service Worker
-app.get('/service-worker.js', serviceWorker(app));
 // Enable router support
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  // TODO: Set the entrypoint
+  res.sendFile(path.join(__dirname, '', ''));
 });
 // CRUD
 app.post('/', function(req, res) {
