@@ -9,8 +9,7 @@ const {
   join
 } = require('path');
 const serviceWorker = (app) => (req, res) => {
-  // TODO: In production dirname must be changed to 'build'
-  const filePath = join(__dirname, 'public', 'service-worker.js');
+  const filePath = join(__dirname, 'build', 'service-worker.js');
 
   app.serveStatic(req, res, filePath);
 };
@@ -30,8 +29,7 @@ app.use(bodyParser.urlencoded({
 app.get('/service-worker.js', serviceWorker(app));
 // Enable router support
 app.get('/*', function(req, res) {
-  // TODO: In production dirname must be changed to 'build'
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 // CRUD
 app.post('/', function(req, res) {

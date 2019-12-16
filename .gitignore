@@ -9,8 +9,10 @@
 # production
 /build
 # misc
+/src/__test__
 /.editorconfig
 /.vscode
+/jest.*.js
 .DS_Store
 .env.local
 .env.development.local
