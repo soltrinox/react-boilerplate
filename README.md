@@ -20,7 +20,7 @@
 
 ## 1) FAQ
 
-Website boilerplate.
+React WebApp boilerplate.
 
 ## 2) Disclaimer
 
