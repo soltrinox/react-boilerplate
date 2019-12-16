@@ -1,6 +1,5 @@
 name: Audit live site
 on: push
-
 jobs:
   audit:
     runs-on: ubuntu-latest
@@ -8,7 +7,7 @@ jobs:
     - name: Audit live URL
       uses: jakejarvis/lighthouse-action@master
       with:
-        url: 'https://lucacattide.dev/'
+        url: 'https://'
     - name: Upload results as an artifact
       uses: actions/upload-artifact@master
       with:

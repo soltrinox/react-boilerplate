@@ -1,7 +1,5 @@
 name: Assign PR to creator
-
 on: [pull_request]
-
 jobs:
   automation:
     runs-on: ubuntu-latest

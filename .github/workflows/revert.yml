@@ -1,16 +1,11 @@
 name: Automatic Revert
-
 on:
   issue_comment:
     types: [created]
-
 jobs:
   revert-commit:
-
     runs-on: ubuntu-latest
-
     if: contains(github.event.comment.body, '/revert')
-
     steps:
       - uses: actions/checkout@v1
       - name: Automatic Revert
