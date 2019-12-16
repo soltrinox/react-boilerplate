@@ -8,6 +8,12 @@ const path = require('path');
 const {
   join
 } = require('path');
+const serviceWorker = (app) => (req, res) => {
+  // TODO: In production dirname must be changed to 'build'
+  const filePath = join(__dirname, 'public', 'service-worker.js');
+
+  app.serveStatic(req, res, filePath);
+};
 const compression = require('compression');
 const bodyParser = require('body-parser');
 
@@ -20,10 +26,12 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 // Routes
+// Service Worker
+app.get('/service-worker.js', serviceWorker(app));
 // Enable router support
 app.get('/*', function(req, res) {
-  // TODO: Set the entrypoint
-  res.sendFile(path.join(__dirname, '', ''));
+  // TODO: In production dirname must be changed to 'build'
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 // CRUD
 app.post('/', function(req, res) {
