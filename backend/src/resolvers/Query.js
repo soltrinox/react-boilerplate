@@ -1,2 +1,0 @@
-// Query Resolvers
-module.exports = {};
