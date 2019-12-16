@@ -9,13 +9,10 @@
 # production
 /build
 # misc
-/public
-/src
+/src/__tests__
 !/.gitignore
 /.*
-/config-overrides.js
-/server.js
-/*.json
+/jest.*.js
 .DS_Store
 .env.local
 .env.development.local
