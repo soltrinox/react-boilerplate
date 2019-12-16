@@ -1,16 +1,41 @@
 // Server - Configuration
+'use strict';
+
+// JS imports
 const express = require('express');
 const app = express();
 const path = require('path');
+const {
+  join
+} = require('path');
+const serviceWorker = (app) => (req, res) => {
+  // TODO: In production dirname must be changed to 'build'
+  const filePath = join(__dirname, 'public', 'service-worker.js');
 
+  app.serveStatic(req, res, filePath);
+};
+const compression = require('compression');
+const bodyParser = require('body-parser');
+
+// Compression
+app.use(compression());
+// JSON support
+app.use(bodyParser.json());
+// URL Encoding
+app.use(bodyParser.urlencoded({
+  extended: true,
+}));
 // Assets Exposing
 app.use('/static', express.static(__dirname + 'public'));
-// CRUD
+// Routes
+// Service Worker
+app.get('/service-worker.js', serviceWorker(app));
 // Enable router support
 app.get('/*', function(req, res) {
   // TODO: In production dirname must be changed to 'build'
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+// CRUD
 app.post('/', function(req, res) {
   res.send('Got a POST request');
 });
@@ -20,7 +45,19 @@ app.put('/', function(req, res) {
 app.delete('/', function(req, res) {
   res.send('Got a DELETE request');
 });
-app.listen(3000, function() {
-  // TODO: In production change localhost to proper URL
+// CSP
+app.post('/csp-report', (req, res) => {
+  if (req.body) {
+    console.log('CSP Violation: ', req.body);
+  } else {
+    console.log('CSP Violation: No data received!');
+  }
+
+  res.status(204).end();
+});
+// General
+app.listen(process.env.PORT || 3000, (err) => {
+  if (err) throw err;
+
   console.log('> Ready on http://localhost:3000');
 });
