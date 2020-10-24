@@ -7,15 +7,22 @@
 # testing
 /coverage
 # production
+/public/lib
+/public/dist
 /build
+/server-build
 # misc
 /.editorconfig
 /.vscode
 .DS_Store
+.env
+.env.development
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 npm-debug.log*
+server.crt
+server.key
 yarn-debug.log*
 yarn-error.log*

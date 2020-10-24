@@ -73,24 +73,6 @@ function registerValidSW(swUrl, config) {
         if (installingWorker == null || waitingWorker === null) {
           return;
         }
-        // Service Worker Update
-        if (registration.waiting) {
-          //TODO: Popup accept/reject implementation
-          /* var prompt = createUIPrompt({
-            onAccept: async function() {
-              if (swUrl.controlling) {
-                window.location.reload();
-              }
-
-              swUrl.messageSW({
-                type: 'SKIP_WAITING'
-              });
-            },
-            onReject: function() {
-              prompt.dismiss();
-            }
-          }); */
-        }
 
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
@@ -121,6 +103,15 @@ function registerValidSW(swUrl, config) {
           }
         };
       };
+
+      if ('Notification' in window) {
+        registration.pushManager.getSubscription().then(function(sub) {
+          if (sub === null) {
+            // Update UI to ask user to register for Push
+            console.log('Not subscribed to push service!');
+          }
+        });
+      }
     })
     .catch(error => {
       console.error('Error during service worker registration:', error);
