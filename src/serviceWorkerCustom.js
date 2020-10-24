@@ -1,181 +1,184 @@
-'use strict';
+// Module Start
+// JS imports
+import { setCacheNameDetails } from 'workbox-core';
+import { precacheAndRoute } from 'workbox-precaching';
+import { registerRoute } from 'workbox-routing';
+import {
+  NetworkFirst,
+  StaleWhileRevalidate,
+  CacheFirst
+} from 'workbox-strategies';
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+import { ExpirationPlugin } from 'workbox-expiration';
+import * as googleAnalytics from 'workbox-google-analytics';
 
 // Service Worker - Custom Configuration
-if (workbox) {
-  self.addEventListener('install', e => {
-    // TODO: Enable here only with push notifications
-    //e.waitUntil(self.skipWaiting());
-    // Cache names
-    workbox.core.setCacheNameDetails({
-      // TODO: Rename
-      prefix: '',
-      suffix: 'v1',
-      precache: '-precache',
-      runtime: '-runtime',
-      googleAnalytics: 'ga',
-    });
+self.addEventListener('install', (e) => { /* eslint-disable-line no-restricted-globals */
+  /* eslint-disable-next-line no-restricted-globals */
+  e.waitUntil(self.skipWaiting());
 
-    // Files precaching
-    workbox.precaching.precacheAndRoute(self.__precacheManifest);
-    // Route Requests
-    // app-shell
-    workbox.routing.registerRoute('/', workbox.strategies.networkFirst());
-    // CDN Resources
-    workbox.routing.registerRoute(
-      /.*(?:googleapis|gstatic|jquery|cloudflare|googletagmanager|google|google-analytics|doubleclick)\.com/,
-      new workbox.strategies.StaleWhileRevalidate({
-        cacheName: 'resources',
-      })
-    );
-    // Fonts - CSS
-    workbox.routing.registerRoute(
-      /^https:\/\/fonts\.googleapis\.com/,
-      new workbox.strategies.StaleWhileRevalidate({
-        cacheName: 'google-fonts-stylesheets',
-      })
-    );
-    // Fonts - Webfonts
-    workbox.routing.registerRoute(
-      /^https:\/\/fonts\.gstatic\.com/,
-      new workbox.strategies.CacheFirst({
-        cacheName: 'google-fonts-webfonts',
-        plugins: [
-          new workbox.cacheableResponse.Plugin({
-            statuses: [0, 200],
-          }),
-          new workbox.expiration.Plugin({
-            maxAgeSeconds: 60 * 60 * 24 * 365,
-            maxEntries: 30,
-          }),
-        ],
-      })
-    );
-    // Images
-    workbox.routing.registerRoute(
-      /\.(?:png|jpg|jpeg|svg|gif)$/,
-      new workbox.strategies.CacheFirst({
-        cacheName: 'images',
-        plugins: [
-          new workbox.expiration.Plugin({
-            maxEntries: 60,
-            // 1 month
-            maxAgeSeconds: 30 * 24 * 60 * 60,
-          }),
-        ],
-      })
-    );
-    // Audio
-    // TODO: HTML tags must have the crossOrigin attribute
-    workbox.routing.registerRoute(
-      /.*\.(?:mp3|ogg)$/,
-      new workbox.strategies.CacheFirst({
-        cacheName: 'audio',
-        plugins: [
-          new workbox.cacheableResponse.Plugin({
-            statuses: [200]
-          }),
-          new workbox.rangeRequest.Plugin(),
-        ],
-      }),
-    );
-    // Video
-    // TODO: HTML tags must have the crossOrigin attribute
-    workbox.routing.registerRoute(
-      /.*\.(?:mp4|webm)$/,
-      new workbox.strategies.CacheFirst({
-        cacheName: 'video',
-        plugins: [
-          new workbox.cacheableResponse.Plugin({
-            statuses: [200]
-          }),
-          new workbox.rangeRequest.Plugin(),
-        ],
-      }),
-    );
-    // CSS
-    workbox.routing.registerRoute(
-      new RegExp('.+\\.css$'),
-      new workbox.strategies.CacheFirst({
-        cacheName: 'css',
-        plugins: [
-          new workbox.expiration.Plugin({
-            maxEntries: 50,
-            // 1 month
-            maxAgeSeconds: 30 * 24 * 60 * 60,
-          }),
-        ],
-      })
-    );
-    // JS
-    workbox.routing.registerRoute(
-      new RegExp('.+\\.js$'),
-      new workbox.strategies.NetworkFirst({
-        networkTimeoutSeconds: 3,
-        cacheName: 'js',
-        plugins: [
-          new workbox.expiration.Plugin({
-            maxEntries: 50,
-            // 1 month
-            maxAgeSeconds: 30 * 24 * 60 * 60,
-          }),
-        ],
-      })
-    );
-
-    // Google Analytics
-    workbox.googleAnalytics.initialize();
+  // Cache names
+  setCacheNameDetails({
+    prefix: '',
+    googleAnalytics: 'ga',
   });
-  self.addEventListener('activate', e => {
-    var cacheWhiteList = [
-      'resources',
-      'google-fonts-stylesheets',
-      'google-fonts-webfonts',
-      'images',
-      'audio',
-      'video',
-      'css',
-      'js',
-    ];
+  // Files precaching
+  /* eslint-disable-next-line no-restricted-globals */
+  precacheAndRoute(self.__WB_MANIFEST || []);
+  // Route Requests
+  // app-shell
+  registerRoute('/', new NetworkFirst());
+  // CDN Resources
+  registerRoute(
+    /.*(?:googleapis|gstatic|googletagmanager|google|google-analytics|doubleclick)\.com/,
+    new StaleWhileRevalidate({
+      cacheName: '-resources'
+    })
+  );
+  // Fonts - CSS
+  registerRoute(
+    /^https:\/\/fonts\.googleapis\.com/,
+    new StaleWhileRevalidate({
+      cacheName: '-google-fonts-stylesheets'
+    })
+  );
+  // Fonts - Webfonts
+  registerRoute(
+    /^https:\/\/fonts\.gstatic\.com/,
+    new CacheFirst({
+      cacheName: '-google-fonts-webfonts',
+      plugins: [
+        new CacheableResponsePlugin({
+          statuses: [0, 200]
+        }),
+        new ExpirationPlugin({
+          maxAgeSeconds: 60 * 60 * 24 * 365,
+          maxEntries: 30
+        })
+      ]
+    })
+  );
+  // Images
+  registerRoute(
+    /\.(?:png|jpg|jpeg|svg|gif)$/,
+    new CacheFirst({
+      cacheName: '-images',
+      plugins: [
+        new ExpirationPlugin({
+          maxEntries: 60,
+          // 1 month
+          maxAgeSeconds: 30 * 24 * 60 * 60
+        })
+      ]
+    })
+  );
+  // CSS
+  registerRoute(
+    new RegExp('.+\\.css$'),
+    new CacheFirst({
+      cacheName: '-css',
+      plugins: [
+        new ExpirationPlugin({
+          maxEntries: 50,
+          // 1 month
+          maxAgeSeconds: 30 * 24 * 60 * 60
+        })
+      ]
+    })
+  );
+  // JS
+  registerRoute(
+    new RegExp('.+\\.js$'),
+    new NetworkFirst({
+      networkTimeoutSeconds: 3,
+      cacheName: '-js',
+      plugins: [
+        new ExpirationPlugin({
+          maxEntries: 50,
+          // 1 month
+          maxAgeSeconds: 30 * 24 * 60 * 60
+        })
+      ]
+    })
+  );
 
-    // Old cache deletion
-    e.waitUntil(caches.keys().then(function(keyList) {
-      return Promise.all(keyList.map(function(key) {
-        if (cacheWhiteList.indexOf(key) === -1) {
-          return caches.delete(key);
-        }
-      }));
-    }).then(function() {
-      self.clients.claim();
+  // Google Analytics
+  googleAnalytics.initialize();
+});
+self.addEventListener('activate', (e) => { /* eslint-disable-line no-restricted-globals */
+  const cacheWhiteList = [
+    '-resources',
+    '-google-fonts-stylesheets',
+    '-google-fonts-webfonts',
+    '-images',
+    '-css',
+    '-js'
+  ];
+
+  // Old cache deletion
+  e.waitUntil(caches.keys().then((keyList) => {
+    return Promise.all(keyList.map((key) => {
+      if (cacheWhiteList.indexOf(key) === -1) {
+        return caches.delete(key);
+      }
     }));
-  });
-  self.addEventListener('fetch', function(e) {
-    e.respondWith(caches.match(e.request).then(function(response) {
-      if (response) {
+  }).then(() => {
+    /* eslint-disable-next-line no-restricted-globals */
+    self.clients.claim();
+  }));
+});
+self.addEventListener('fetch', (e) => { /* eslint-disable-line no-restricted-globals */
+  e.respondWith(caches.match(e.request).then((response) => {
+    if (response) {
+      return response;
+    }
+    if (e.request.cache === 'only-if-cached' && e.request.mode !== 'same-origin') {
+      return;
+    }
+
+    return fetch(e.request).then((response) => {
+      if (!response || response.status !== 200 || response.type !== 'basic') {
         return response;
       }
 
-      return fetch(e.request)
-        .then(function(response) {
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
+      const responseToCache = response.clone();
 
-          var responseToCache = response.clone();
-
-          // TODO: Rename with one set in setCacheNameDetails
-          caches.open('')
-            .then(function(cache) {
-              cache.put(e.request, responseToCache);
-            });
-
-          return response;
+      caches.keys().then((keyList) => {
+        keyList.forEach((key) => {
+          caches.open(key).then((cache) => {
+            cache.put(e.request, responseToCache);
+          });
         });
-    }));
-  });
-  self.addEventListener('message', function(e) {
-    if (e.data && e.data.type === 'SKIP_WAITING') {
-      self.skipWaiting();
-    }
-  });
-}
-// Service Worker End
+      });
+
+      return response;
+    });
+  }));
+});
+self.addEventListener('message', (e) => { /* eslint-disable-line no-restricted-globals */
+  if (e.data && e.data.type === 'SKIP_WAITING') {
+    /* eslint-disable-next-line no-restricted-globals */
+    self.skipWaiting();
+  }
+});
+self.addEventListener('push', (e) => { /* eslint-disable-line no-restricted-globals */
+  const data = e.data.json();
+  const options = {
+    body: data.body,
+    icon: 'img/-128.png',
+    vibrate: [50, 50, 50, 50],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: '1'
+    },
+    actions: [{
+      action: 'close',
+      title: data.action,
+      icon: 'img/-128.png'
+    }]
+  };
+
+  /* eslint-disable-next-line no-restricted-globals */
+  e.waitUntil(self.registration.showNotification(data.title, options));
+});
+// Module End

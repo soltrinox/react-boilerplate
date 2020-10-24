@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
       labels:
-        dev.lucacattide.blog.title: ""
-        dev.lucacattide.blog.description: ""
+        dev.stack.title: ""
+        dev.stack.description: ""
     volumes:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
@@ -17,5 +17,5 @@ services:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
     labels:
-      dev.lucacattide.blog.title: ""
-      dev.lucacattide.blog.description: ""
+      dev.stack.title: ""
+      dev.stack.description: ""
