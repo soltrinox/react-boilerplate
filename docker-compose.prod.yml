@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  app-prod:
+    container_name: app-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+      labels:
+        dev.app.title: ''
+        dev.app.description: ''
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+      - '/usr/src/app/.next'
+    ports:
+      - '1337:80'
+    environment:
+      - NODE_ENV=production
+    labels:
+      dev.app.title: ''
+      dev.app.description: ''

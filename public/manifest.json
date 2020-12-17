@@ -1,0 +1,43 @@
+{
+  "name": "",
+  "short_name": "",
+  "background_color": "#",
+  "description": "",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope:": "/",
+  "splash_page": null,
+  "start_url": ".",
+  "theme_color": "#",
+  "icons": [{
+    "src": "/img/",
+    "sizes": "128x128",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "/img/",
+    "sizes": "144x144",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "/img/",
+    "sizes": "152x152",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "/img/",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "/img/",
+    "sizes": "256x256",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "/img/",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }]
+}

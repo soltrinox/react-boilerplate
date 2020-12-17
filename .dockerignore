@@ -1,0 +1,7 @@
+node_modules
+.dockerignore
+.editorconfig
+.vscode
+.DS_Store
+Dockerfile
+Dockerfile.prod
