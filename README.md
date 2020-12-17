@@ -152,7 +152,7 @@ npm run test --coverage
 
 The production version is deployed on [Vercel (see)](https://.vercel.app/).
 
-### Deploy on Vercel
+### Deploy on Heroku
 
 The easiest way to deploy your React app is to use the [Heroku Buildpack](https://github.com/mars/create-react-app-buildpack) with [zero-configuration](https://blog.heroku.com/deploying-react-with-zero-configuration).
 
