@@ -1,15 +1,16 @@
 // Module Start
 // JS imports
 import { Middleware } from 'redux';
-import { RootState } from '../store';
+import { RootState } from '../reducers/index';
 
 const component: Middleware<{}, RootState> = (store) => (next) => (action) => {
-  const state = store.getState().ui.component;
+  const state = store.getState().entity;
 
   switch (action.type) {
-    case 'component/action':
+    case 'component/action': {
       const { property } = action.payload;
       break;
+    }
 
     default:
   }
