@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 import { Typography, Button, Zoom } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { CommonProps, EmptyProps } from './global';
+import { CommonProps, EmptyProps } from '../../typings/props.d';
 
 const useStyles = makeStyles(() => ({
   center: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 // CTA setter
-const handleCta = (url: string) =>
+const handleCta = (url: string | undefined) =>
   React.forwardRef((props, ref) => (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <RouterLink ref={ref} to={url} {...props} />
