@@ -7,7 +7,7 @@ import { onError } from 'apollo-link-error';
 import * as ws from 'ws';
 import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition } from 'apollo-utilities';
-import { environment, apiBaseUrl } from './utils.ts';
+import { environment, apiBaseUrl } from '../utils';
 
 // Apollo Client configuration
 const isBrowser = typeof window !== 'undefined';
@@ -39,7 +39,8 @@ const authLink = setContext((_, { headers }) => {
  * Real-time event listener
  */
 const wsLink = new WebSocketLink({
-  uri: environment.NODE_ENV === 'development' ? 'ws://localhost:4000' : 'ws://',
+  uri:
+    environment.NODE_ENV === 'development' ? 'ws://localhost:4000' : 'wss://',
   options: {
     reconnect: true,
     connectionParams: {
