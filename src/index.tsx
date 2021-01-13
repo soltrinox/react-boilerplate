@@ -8,7 +8,7 @@ import { loadableReady } from '@loadable/component';
 import Root from './components/Root';
 import client from './backend/apollo';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import { checkPermission, subscribeUser } from './subscription';
+import { checkPermission, subscribeUser } from './utils';
 import { reportWebVitals, sendToGTM } from './reportWebVitals';
 
 loadableReady(() => {
