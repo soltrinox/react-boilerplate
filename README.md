@@ -105,6 +105,7 @@ kubectl delete service,deployment my-app
 ### Libraries
 
 - [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
 - [Workbox](https://developers.google.com/web/tools/workbox/)
 - [Apollo Client](https://www.apollographql.com/)
 
