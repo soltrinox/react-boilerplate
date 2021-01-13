@@ -4,7 +4,7 @@ import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 import setAction from '../actions/action';
 
 // Iterfaces
-interface EntityState {
+export interface EntityState {
   property: boolean;
 }
 
@@ -12,8 +12,8 @@ interface EntityState {
 const initState: EntityState = {
   property: false,
 };
-// Account state reducer
-const account = createReducer(initState, {
+// Entity state reducer
+const entity = createReducer(initState, {
   [setAction.type]: (
     state: EntityState,
     action: PayloadAction<EntityState>,
@@ -25,5 +25,5 @@ const account = createReducer(initState, {
 });
 
 // Module export
-export default account;
+export default entity;
 // Module End
